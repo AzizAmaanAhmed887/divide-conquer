@@ -17,9 +17,9 @@ public class quickSortImplementation {
 
     public static int partition(int[] arr, int si, int ei) {
         int pivot = arr[ei];
-        int i = si - 1; // to make els smaller than pivot
+        int i = si - 1; // to make place for els smaller than pivot
 
-        for (int j = 0; j < ei; j++) {
+        for (int j = si; j < ei; j++) {
             if (arr[j] <= pivot) {
                 i++;
                 //swap
@@ -28,10 +28,21 @@ public class quickSortImplementation {
                 arr[i] = temp;
             }
         }
+        // swapping for leftover els
+        i++;
+        //swap
+        int temp = pivot;
+        arr[ei] = arr[i];
+        arr[i] = temp;
+
+        return i; // because pivot correct index = i
     }
 
     public static void main(String[] args) {
         int[] arr = {6, 3, 9, 8, 2, 5};
+        printArray(arr);
         quickSort(arr, 0, arr.length - 1);
+        System.out.println();
+        printArray(arr);
     }
 }
