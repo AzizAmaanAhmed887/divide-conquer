@@ -1,5 +1,9 @@
 public class Sorted_Rotated_Array_Search {
     public static int search(int[] arr, int target, int si, int ei) {
+        // base case
+        if (si > ei) {
+            return -1;
+        }
         // mid
         int mid = si + (ei - si) / 2;
 
